@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * FeedItem for storing feed data
  * @class
@@ -19,6 +17,22 @@
  * @property {Object} meta
  * @property {any} [x] String-keyed object. Various more are allowed than are representable
  */
-class FeedItem {}
+class FeedItem {
+    title: string;
+    description: string;
+    summary: string;
+    date: Date | null;
+    pubdate: Date | null;
+    link: string;
+    origlink: string;
+    author: string;
+    guid: string;
+    comments: string;
+    image: any;
+    categories: string;
+    enclosures: any;
+    meta: any;
+    x?: any;
+}
 
-module.exports = FeedItem;
+export default FeedItem;
