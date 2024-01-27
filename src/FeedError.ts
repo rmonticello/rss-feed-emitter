@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * Generic feed error
  * @extends Error
@@ -9,13 +7,16 @@
  * @property {string} feed Feed URL producing the error
  */
 class FeedError extends Error {
+  name: string;
+  feed: string;
+
   /**
    * Create a Feed error
    * @param {string} message error message
    * @param {string} type    Type of error, provides Error#name
-   * @param {string} feed    Feed url that originated the error
+   * @param {string} feed    Feed URL that originated the error
    */
-  constructor(message, type, feed) {
+  constructor(message: string, type: string, feed: string) {
     super(message);
     /**
      * Type of error
@@ -23,15 +24,15 @@ class FeedError extends Error {
      */
     this.name = type;
     /**
-     * Feed url causing the error
+     * Feed URL causing the error
      * @type {string}
      */
     this.feed = feed;
   }
 
-  toString() {
+  toString(): string {
     return `${this.name} : ${this.message}\n${this.feed}`;
   }
 }
 
-module.exports = FeedError;
+export default FeedError;
